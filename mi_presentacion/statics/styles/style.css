@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "font1JZ";
+    src: url("../fonts/fuente1.ttf");
+}
+@font-face {
+    font-family: "font2JZ";
+    src: url("../fonts/fuente2.ttf");
+}
+
+/*= (FONDO)
+----------------------------------------------------*/
+body{
+    background-image: url("../../assets/img/vaca.jpeg");
+}
+
+/*= HEADER
+----------------------------------------------------*/
+span{
+    color: rgba(8, 56, 56, 0.589);
+}
+.YO{
+    font-family: "font1JZ", "Copperplate", fantasy;
+    color: rgba(46, 129, 129, 0.589);
+    background-color: aliceblue;
+    text-align: center;
+    font-size: 4vw;
+}
+
+/*= NAV
+----------------------------------------------------*/
+a:link{
+    color: rgba(8, 56, 56, 0.589);
+}
+a:visited{
+    color: blue;
+}
+.padre{
+    width: 250px;
+    height: 1800px;
+    position: absolute;
+}
+.indice{
+    width: 250px;
+    height: 160px;
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0;
+}
+
+/*= MAIN
+----------------------------------------------------*/
+#fotomia{
+    width: 563px;
+    height: 420px;
+    border-radius: 70px;
+    position: relative;
+    left: 10vw;
+}
+#info{
+    width: 18vw;
+    height: 13vh;
+    text-align: center;
+    background-color: aliceblue;
+    overflow: auto;
+    position: relative;
+    left: 40%;
+}
+
+/*= ASIDE
+----------------------------------------------------*/
+.redes{
+    width: 13vw;
+    height: 100vh;
+    background-color: aliceblue;
+    position: fixed;
+    left: 87vw;
+    top: 0px;
+}
+#facebook{
+    list-style-image: url(../../assets/img/facebook.jpg);
+}
+#instagram{
+    list-style-image: url(../../assets/img/instagram.jpeg);
+}
+#spotify{
+    list-style-image: url(../../assets/img/spotify.jpeg);
+}
+
+/*= SECTION
+----------------------------------------------------*/
+.center{
+    text-align: center;
+}
+.hobbies{
+    width: 250px;
+    height: 360px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 55%;
+    top: 35%;
+    border-radius: 70px;
+}
+.hobbies:hover{
+    border: 10px dotted goldenrod;
+}
+
+/*= ARTICLE
+----------------------------------------------------*/
+.article{
+    width: 60vw;
+    height: 1800px;
+    background-color: aliceblue;
+    position: absolute;
+    left: 300px;
+    top: 50;
+}
+#canciones{
+    font-family: "font2JZ", "Copperplate", fantasy;
+    font-size: 5vw;
+}
