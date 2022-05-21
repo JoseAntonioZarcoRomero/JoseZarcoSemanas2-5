@@ -1,0 +1,16 @@
+body{
+    background-color: lightseagreen;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#CONTENEDOR{
+    background-color: aliceblue;
+    padding: 2em;
+    text-align: center;
+    border-radius: 1em;
+}
+#nPicos{
+    width: 20vw;;
+}

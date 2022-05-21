@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canal 2</title>
+        <link rel="stylesheet" href="./statics/css/styles.css">
+    </head>
+    <body>
+        <div id="CONTENEDOR">
+            <h1>Dibujador de estrella</h1>
+            <br><canvas id="estrella" width="400" height="400"></canvas><br>
+            <div id="cambie">
+                <br><br><label for="nPicos">Número de Picos: 
+                    <input type="number" name="nPicos" id="nPicos" min="4" max="30">
+                </label>
+                <br><br><label for="picudo">Picudo: 
+                    <input type="range" name="picudo" id="picudo">
+                </label>
+                <br><br><label for="color">Color de la estrella: 
+                    <input type="color" name="color" id="color">
+                </label>
+                <br><br><label for="relleno">
+                    <input type="checkbox" name="relleno" id="relleno">Rellenar estrella
+                </label>
+            </div>
+        </div>
+        <script src="./dynamics/JS/index.js"></script>
+    </body>
+</html>
