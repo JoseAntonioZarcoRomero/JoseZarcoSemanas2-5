@@ -1,0 +1,71 @@
+body{
+    background-color: blue;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.boton{
+    display: inline-block;
+    background-color: rgba(0, 0, 255, 0.815);
+    border: none;
+    color: white;
+    padding: 0.3em;
+    border-radius: 15px;
+    width: 7vw;
+    margin: 0.2em;
+}
+.boton:hover{
+    background-color: red;
+}
+#contForm{
+    background-color: aliceblue;
+    width: 35vw;
+    padding: 2em;
+    border-radius: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 10px dotted green;
+    padding: 2em;
+}
+#nuevaMateria{
+    display: none;
+}
+#contLista{
+    width: 33vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 45px;
+    border: 1px inset blue;
+}
+#btn-agregar{
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+    padding: 0.7em;
+    border-radius: 15px;
+}
+#btn-agregar:hover{
+    background-color: red;
+}
+.tarea{
+  margin: 1.2em;
+  background-color: darkcyan;
+  width: 25vw;
+  border-radius: 15px;
+  padding: 1em;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contador{
+    display: none;
+    padding: 2em;
+}

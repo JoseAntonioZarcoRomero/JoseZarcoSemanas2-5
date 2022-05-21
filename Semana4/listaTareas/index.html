@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +8,21 @@
         <link rel="stylesheet" href="./statics/css/style.css">
     </head>
     <body>
-        <h1>Lista de tareas</h1>
-        <label for="tarea"></label>
-            <input type="text" name="input" id="tarea">
-        <br>
-        <label for="materia"></label>
+        <div id="contForm">
+            <h1>Lista de tareas</h1>
+            <input type="text" name="nuevaTarea" id="nuevaTarea" placeholder="Ingresa tarea" required><br>
             <select name="materia" id="materia">
-                <option id="nueva"></option>
+                <option value="Otra">Otra</option>
             </select>
-        <br>
-        <button id="agregar">Añadir tarea</button>
+            <input type="nuevaMateria" name="nuevaMateria" id="nuevaMateria" placeholder="Ingrese nueva materia" required>
+            <br><button id="btn-agregar">Agregar</button><br>
+            <div id="contLista">
+                <div id="listaTareas">
+                </div>
+            </div>
+            <div id="contador">
+            </div>
+        </div>
         <script src="./dynamics/JS/index.js"></script>
     </body>
 </html>
