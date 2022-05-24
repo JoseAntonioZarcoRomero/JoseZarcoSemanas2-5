@@ -5,94 +5,69 @@ const nPicos = document.getElementById("nPicos");
 const picudo = document.getElementById("picudo");
 const color = document.getElementById("color");
 const relleno = document.getElementById("relleno");
+
 /*Eventos formulario
+si altero datos del formulario actualizo canvas
 -------------------------------------------------------------*/
-// formcambie.addEventListener("change",actualizaCanvas);//Si altero datos del formulario actualizo canvaas
+formcambie.addEventListener("change",actualizaCanvas);
+
 /*Canvas
 -------------------------------------------------------------*/
 const canvas = document.getElementById("estrella");
 const ctx = canvas.getContext("2d");
-ctx.strokeStyle = 'black';
-ctx.strokeRect(0,0,canvas.width,canvas.height);
-// function actualizaCanvas(){
+
+// Variables para mi canva
+let centrox = canvas.width/2;
+let centroy = canvas.height/2;
+let radioGrande = 180, alt = false;
+let radio, angulo, desplazarX, desplazarY;
+ctx.lineWidth = 3;
+
+function actualizaCanvas(){
     let numPicos = nPicos.value;
-    // if(numPicos == ""){
-    //     alert("Por favor ingresa un número de picos")
-    // } else if (numPicos < 4 || numPicos > 30){
-    //     alert("El número de picos ingresado es inválido");
-    // } else {
+    if(numPicos == ""){
+        alert("Por favor ingresa un número de picos")
+    } else if (numPicos < 4 || numPicos > 30){
+        alert("El número de picos ingresado es inválido");
+    } else {
+        //Crea un rectangulo para "borrar" canva anterior
+        ctx.fillStyle = 'aliceblue';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        //Recibo datos del formulario
         let picudez = picudo.value;
         let colorStar = color.value;
         let rellenoStar = relleno.checked;
-        // alert("Cambie el canvas"+"|"+numPicos+"|"+picudez+"|"+colorStar+"|"+rellenoStar);
+        
         /*Estrella
         ----------------------------------------------------------------*/
-        numPicos = 10;
-        picudez = 100;
-        let xNueva = 200;
-        let yNueva = 0;
-        let angulo = 360/numPicos;
+        let radioChico = picudez;
+        let numPuntos = numPicos*2;
+        let fraccion = (Math.PI*2)/numPuntos;
         ctx.beginPath();
-
-        ctx.moveTo(200,0);
-
-        let angulo3 = ((angulo)*(3/4)+(angulo)*0)*Math.PI/180;
-        let angulo1 = ((angulo)*(1/4)+(angulo)*0)*Math.PI/180;
-
-        for(let i=0; i<numPicos; i++){
-            let anguloR = ((angulo)*(3/4)+(angulo)*i)*Math.PI/180;
-            let desplazarX = 50 * Math.cos(anguloR);
-            let desplazarY = 50 * Math.sin(anguloR);
-            xNueva += desplazarX;
-            yNueva +=desplazarY;
-            ctx.lineTo(xNueva,yNueva);
-            
-            anguloR = ((angulo)*(1/4)+(angulo)*i)*Math.PI/180;
-            desplazarX = 50 * Math.cos(anguloR);
-            desplazarY = 50 * Math.sin(anguloR);
-            xNueva += desplazarX;
-            yNueva +=desplazarY;
-            ctx.lineTo(xNueva,yNueva);
-
-
-
-            // let anguloR = ((3/4 + i)*2*Math.PI/numPicos);
-            // let desplazarX = 50 * Math.cos(anguloR);
-            // let desplazarY = 50 * Math.sin(anguloR);
-            // ctx.lineTo(desplazarX,desplazarY);
-            
-            // // anguloR = ((angulo)*(1/4)+(angulo)*i)*Math.PI/180;
-            // anguloR = ((1/4 + i)*2*Math.PI/numPicos);
-            // desplazarX = 50 * Math.cos(anguloR);
-            // desplazarY = 50 * Math.sin(anguloR);
-            // ctx.lineTo(desplazarX,desplazarY);
+        for(let i=0; i<numPuntos; i++){
+            if(alt === true){
+                radio = radioChico;
+                alt = false;
+            } else {
+                radio = radioGrande;
+                alt = true;
+            }
+            angulo = i * fraccion;
+            desplazarX = radio * Math.cos(angulo) + centrox;
+            desplazarY = radio * Math.sin(angulo) + centroy;
+            ctx.lineTo(desplazarX,desplazarY);
         }
+        ctx.closePath();
 
-
-
-        /*dibujo
-        ----------------------------------------------------------------*/
-        
-
-
-
-
-
-
-
-
-
-
-        ctx.stroke();
         /*Agrega colores
         -------------------------------------------------------------*/
-        // ctx.fillStyle = 'aliceblue';
-        // if(rellenoStar == true){
-        //     ctx.fillStyle = color.value;
-        // }
-        // ctx.fill();
-        // ctx.strokeStyle = color.value;
-        // ctx.stroke();
-        // ctx.closePath();
-    // }
-// }
+        ctx.fillStyle = 'aliceblue';
+        if(rellenoStar == true){
+            ctx.fillStyle = colorStar;
+        }
+        ctx.fill();
+        ctx.strokeStyle = colorStar;
+        ctx.stroke();
+    }
+}
