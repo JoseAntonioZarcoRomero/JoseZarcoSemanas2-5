@@ -1,0 +1,13 @@
+body{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.reloj{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
