@@ -7,12 +7,14 @@
         <title>Temporizador</title>
         <link rel="stylesheet" href="./libs/bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
         <link rel="stylesheet" href="./statics/styles/styles.css">
+        <link rel="shortcut icon" href="./statics/img/timer.png" type="image/x-icon">
     </head>
     <body>
         <div class="reloj">
-            <div class="centro">
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" name="temporizador" id="temporizador">--:--:--</span>
-            </div>
+            <canvas id="mi-canvas" width="400" height="400" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                <p>Aquí va un canvas</p>
+                <span name="temporizador" id="temporizador">--:--:--</span>
+            </canvas>
         </div>
         <!-- Button trigger modal -->
         <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -45,9 +47,9 @@
         <br>
 
         <div id="btn">
-            <button id="inicio">Inicio</button>
-            <button id="detener">Detener</button>
-            <button id="restablecer">Reestablecer</button>
+            <button class="boton" id="inicio">Inicio</button>
+            <button class="boton" id="pausa">Pausa</button>
+            <button class="boton" id="restablecer">Reestablecer</button>
         </div>
 
         <!-- Scripts JAVA -->

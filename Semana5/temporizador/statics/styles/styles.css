@@ -13,3 +13,20 @@ body{
     font-size: 3em;
     font-weight: bolder;
 }
+#mi-canvas{
+    /* border: 2px solid white; */
+    cursor: pointer;
+}
+.boton{
+    background-color: white;
+    color: black;
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: bolder;
+    padding: .5em;
+    border-radius: 15px;
+}
+.boton:hover{
+    background-color: green;
+    color: white;
+}

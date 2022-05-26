@@ -1,4 +1,4 @@
-let temporizador,unaVez=true;
+let temporizador, unaVez=true, textcanvas= "--:--:--",tiempocanva,tiempoTotal=1;
 const sonido = new Audio("./statics/media/audio/tiempo.mp3");
 //Contador temporizador
 const contTemporizador = document.getElementById("temporizador");
@@ -10,19 +10,64 @@ const segundos = document.getElementById("segundos");
 const aceptar = document.getElementById("aceptar");
 const btn = document.getElementById("btn");
 
+/*Canvas
+-------------------------------------------------------------*/
+const canvas = document.getElementById("mi-canvas");
+const ctx = canvas.getContext("2d");
+actualizaCirculo();
+
+function actualizaCirculo(){
+    //"borro" canvas pasado
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.lineWidth = 15;
+
+    //dibujo círculo
+    ctx.beginPath();
+    ctx.arc(canvas.width/2, canvas.height/2, 180, 0, Math.PI*2);
+    ctx.strokeStyle = 'white';
+    ctx.stroke();
+    ctx.closePath();
+
+    //tiempo
+    if(tiempoTotal>0){
+        let ang = (360*tiempoTotal)/tiempocanva;
+        anguloTranscurrido = ((ang-90)*Math.PI/180);
+        ctx.beginPath();
+        ctx.arc(canvas.width/2, canvas.height/2, 180, ((0-90)*Math.PI/180), anguloTranscurrido);
+        ctx.strokeStyle = 'green';
+        ctx.stroke();
+        ctx.closePath();
+    } else if(tiempoTotal<=0){
+        ctx.beginPath();
+        ctx.arc(canvas.width/2, canvas.height/2, 180, 0, Math.PI*2);
+        ctx.strokeStyle = 'red';
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    //pongo texto
+    ctx.fillStyle = 'white';
+    ctx.textAlign = "center";
+    ctx.font = "50px monospace";
+    ctx.fillText(textcanvas,canvas.width/2, canvas.height/2);
+}
+
 /*Eventos
 ----------------------------------------------------------------------------------*/
 aceptar.addEventListener("click",()=>{
     checkValores();
     muestraTimer();
+    tiempocanva = calcTiempoTotal();
 });
 btn.addEventListener("click",(boton)=>{
     const btnClickeado = boton.target;
+    tiempoTotal = calcTiempoTotal();
     if(btnClickeado.id == "inicio"){
         if(unaVez==true){
             unaVez=false;
             checkValores();
-            let tiempoTotal = calcTiempoTotal();
             if(tiempoTotal > 0){
                 temporizador = setInterval(()=>{
                     if(tiempoTotal < 0){
@@ -30,16 +75,16 @@ btn.addEventListener("click",(boton)=>{
                         sonido.play();
                         clearInterval(temporizador);
                         unaVez=true;
-                        tiempoTotal=0;
+                        tiempoTotal=1;
                         horas.value=0;
                         minutos.value=0;
                         segundos.value=0;
                     } else {
                         muestraTimer();
-                        console.log(tiempoTotal);
-                        console.log(horas.value);
-                        console.log(minutos.value);
-                        console.log(segundos.value);
+                        // console.log(tiempoTotal);
+                        // console.log(horas.value);
+                        // console.log(minutos.value);
+                        // console.log(segundos.value);
                         segundos.value--;
                         tiempoTotal-=1000;
                         if(segundos.value < 0 && minutos.value > 0){
@@ -58,16 +103,21 @@ btn.addEventListener("click",(boton)=>{
                 },1000);
             }
         }
-    } else if(btnClickeado.id == "detener"){
-        ;
+    } else if(btnClickeado.id == "pausa"){
+        if(tiempoTotal > 0){
+            clearInterval(temporizador);
+            unaVez=true;
+        }
     } else if(btnClickeado.id == "restablecer"){
         clearInterval(temporizador);
         unaVez=true;
-        tiempoTotal=0;
+        tiempoTotal=1;
         horas.value=0;
         minutos.value=0;
         segundos.value=0;
         contTemporizador.innerHTML = "--:--:--";
+        textcanvas = "--:--:--";
+        actualizaCirculo();
     }
 });
 
@@ -112,4 +162,6 @@ function muestraTimer(){
         txtHoras = horas.value;
     }
     contTemporizador.innerHTML = txtHoras+":"+txtMinutos+":"+txtSegundos;
+    textcanvas = txtHoras+":"+txtMinutos+":"+txtSegundos;
+    actualizaCirculo();
 }
