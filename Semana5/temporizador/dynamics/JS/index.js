@@ -81,10 +81,6 @@ btn.addEventListener("click",(boton)=>{
                         segundos.value=0;
                     } else {
                         muestraTimer();
-                        // console.log(tiempoTotal);
-                        // console.log(horas.value);
-                        // console.log(minutos.value);
-                        // console.log(segundos.value);
                         segundos.value--;
                         tiempoTotal-=1000;
                         if(segundos.value < 0 && minutos.value > 0){
