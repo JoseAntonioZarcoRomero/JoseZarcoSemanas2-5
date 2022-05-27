@@ -4,7 +4,7 @@
     if(!$con){
         echo "No se pudo conectar con la base de datos";
     } else {
-        $id = (isset($_POST["id"]) && $_POST["id"] !="") ? $_POST["id"] : false;
+        $id = (isset($_POST["id"]) && $_POST["id"] != "") ? $_POST["id"] : false;
         $sql = "DELETE FROM pokemon_types WHERE pok_id=$id";
         $res = mysqli_query($con, $sql);
         if($res === true){

@@ -5,13 +5,24 @@
         echo "No se pudo conectar a la base de datos";
     }
     else{
+        $nombreExist = false;
+        $nombreIntroducido = (isset($_POST["name"]) && $_POST["name"] != "") ? $_POST["name"] : false;
         $sql = "SELECT pok_name FROM pokemon";
         $res = mysqli_query($con, $sql);
         $resultados = [];
         while($row = mysqli_fetch_assoc($res)){
-            $resultados[] = array("nombre" => $row["pok_name"]);
+            $resultados[] = $row["pok_name"];
         }
-
-        echo json_encode($resultados);
+        for($i=0; $i<count($resultados) ;$i++){
+            if($nombreIntroducido == $resultados[$i]){
+                $nombreExist = true;
+            }
+        }
+        if($nombreExist === true){
+            $respuesta = array("ok" => false);
+        } else {
+            $respuesta = array("ok" => true);
+        }
+        echo json_encode($respuesta);
     }
 ?>

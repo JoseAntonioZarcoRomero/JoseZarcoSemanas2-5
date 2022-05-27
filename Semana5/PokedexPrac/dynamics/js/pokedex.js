@@ -8,7 +8,27 @@ window.addEventListener("load", ()=>{
   const formNuevo = document.getElementById("form-nuevo");
 
   function verifDatos(){
-    var datosok = true;
+    let datosok;
+    if(formNuevo.nombre.value != ""){
+      let datosForm = new FormData();
+      datosForm.append("name",formNuevo.nombre.value);
+      fetch("dynamics/php/nombres.php",{
+        method:"POST",
+        body:datosForm,
+      })
+        .then((response)=>{
+          return response.json();
+        })
+        .then((datosJSON)=>{
+          console.log(datosJSON);
+          if(datosJSON.ok == true){
+            datosok = true;
+          } else {
+            datosok = false;
+            alert("Ya existe un pokemon con ese nombre");
+          }
+        });
+    }
     if(formNuevo.altura.value < 1 || formNuevo.peso.value < 1 || (formNuevo.exp_base.value%1 != 0) || formNuevo.exp_base.value == "" || formNuevo.nombre.value == ""){
       if(formNuevo.nombre.value == "")
         alert("No se ingreso un nombre");
@@ -19,20 +39,7 @@ window.addEventListener("load", ()=>{
       if((formNuevo.exp_base.value % 1 != 0) || formNuevo.exp_base.value == "")
         alert("La experiencia debe ser un valor entero");
       datosok = false;
-    } else {
-      fetch("dynamics/php/nombres.php")
-        .then((response)=>{
-          return response.json();
-        })
-        .then((datosJSON)=>{
-          for(pokemon of datosJSON){
-            if(pokemon.nombre == formNuevo.nombre.value){
-              datosok = false;
-              alert("Ya existe un pokemon con ese nombre");
-            }
-          }
-        });
-    }
+    } 
     return datosok;
   }
 
@@ -46,8 +53,8 @@ window.addEventListener("load", ()=>{
     divAgregar.style.display = "none";
     evento.preventDefault();
     let datosok = verifDatos();
-    console.log("datosok: "+datosok);
-    if(datosok == true){
+    if(datosok === true){
+      console.log(verifDatos());
       let datosForm = new FormData(formNuevo);
       fetch("dynamics/php/crear_pokemon.php",{
         method:"POST",
