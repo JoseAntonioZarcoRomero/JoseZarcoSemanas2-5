@@ -8,7 +8,7 @@ window.addEventListener("load", ()=>{
   const formNuevo = document.getElementById("form-nuevo");
 
   function verifDatos(){
-    let datosok;
+    let todobien;
     if(formNuevo.nombre.value != ""){
       let datosForm = new FormData();
       datosForm.append("name",formNuevo.nombre.value);
@@ -22,9 +22,9 @@ window.addEventListener("load", ()=>{
         .then((datosJSON)=>{
           console.log(datosJSON);
           if(datosJSON.ok == true){
-            datosok = true;
+            todobien = true;
           } else {
-            datosok = false;
+            todobien = false;
             alert("Ya existe un pokemon con ese nombre");
           }
         });
@@ -38,9 +38,9 @@ window.addEventListener("load", ()=>{
         alert("El peso debe ser un valor numerico positivo");
       if((formNuevo.exp_base.value % 1 != 0) || formNuevo.exp_base.value == "")
         alert("La experiencia debe ser un valor entero");
-      datosok = false;
+      todobien = false;
     } 
-    return datosok;
+    return todobien;
   }
 
   btnAgregar.addEventListener("click", (evento)=>{
@@ -52,8 +52,8 @@ window.addEventListener("load", ()=>{
   btnEnviar.addEventListener("click", (evento)=>{
     divAgregar.style.display = "none";
     evento.preventDefault();
-    let datosok = verifDatos();
-    if(datosok === true){
+    let todobien = verifDatos();
+    if(todobien === true){
       console.log(verifDatos());
       let datosForm = new FormData(formNuevo);
       fetch("dynamics/php/crear_pokemon.php",{
