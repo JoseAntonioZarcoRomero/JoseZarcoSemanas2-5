@@ -24,9 +24,8 @@
             // $peticion[1] = "DELETE FROM pokemon_total WHERE pok_id=$id";
             // $peticion[2] = "DELETE FROM top_10_view WHERE pok_id=$id";
         $peticion[1] = "DELETE FROM pokemon_abilities WHERE pok_id=$id";
-        $peticion[2] = "DELETE FROM pokemon_evolution_matchup WHERE pok_id=$id";
-        $peticion[3] = "DELETE FROM pokemon_moves WHERE pok_id=$id";
-        // $peticion[4] = "DELETE FROM pokemon_evolution_matchup WHERE pok_id=$id";
+        $peticion[2] = "DELETE FROM pokemon_moves WHERE pok_id=$id";
+        $peticion[3] = "DELETE FROM pokemon_evolution_matchup WHERE pok_id=$id";
         // $peticion[8] = "DELETE FROM att_def_hp WHERE pok_id=$id";
         $peticion[4] = "DELETE FROM pokemon_types WHERE pok_id=$id";
         $peticion[5] = "DELETE FROM pokemon WHERE pok_id=$id";

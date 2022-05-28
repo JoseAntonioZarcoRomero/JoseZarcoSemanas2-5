@@ -160,6 +160,7 @@ window.addEventListener("load", ()=>{
         .then((datosJSON)=>{
           if(datosJSON.ok == true){
             alert("Se elimino el pokemon");
+            divDatos.style.display = "none";
           } else {
             alert("No se pudo eliminar");
           }
