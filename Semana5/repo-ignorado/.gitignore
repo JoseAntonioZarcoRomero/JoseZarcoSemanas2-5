@@ -1,0 +1,26 @@
+# Se ignoran las carpetas que coincidan con el nombre sin importar su ubicación
+**/ContenidoSecreto
+
+# Se ignora el archivo config sin importar dónde esté
+**/config.php
+
+# Se ignoran todos los pdf que estén dentro de los assets
+assets/**/*.pdf
+
+# Se ignoran todos los archivos de estensión txt
+*.txt
+
+# Se ignoran todas las imágenes
+/assets/media/images
+
+# Se ignoran todos los archivos marcados con la bandera -prueba
+*-prueba*.*
+
+# Se ignoran todos los archivos marcados con la bandera -local
+*-local*.*
+
+# No ignores archivos esenciales para el sistema
+!*-system*.*
+
+# No ignores archivos que se marquen como -experimento en cualquier parte del nombre
+!*-experimento*.*
