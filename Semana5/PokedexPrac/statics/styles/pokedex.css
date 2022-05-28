@@ -92,3 +92,17 @@ div.dato {
 #btn-eliminar:hover {
     background-color: rgb(154, 132, 9);
 }
+
+#btn-actualizar {
+    min-width: 200px;
+    width: 10vw;
+    background-color: aqua;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    min-height: 10vw;
+}
+
+#btn-actualizar:hover {
+    background-color: #00ffff9d;
+}

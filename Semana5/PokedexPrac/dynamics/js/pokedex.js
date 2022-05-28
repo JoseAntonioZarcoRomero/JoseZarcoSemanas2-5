@@ -139,6 +139,7 @@ window.addEventListener("load", ()=>{
               divDatos.innerHTML += "<div class='dato'><strong>Peso</strong>"+datosJSON.datos.peso+"</div>";
               divDatos.innerHTML += "<div class='dato'><strong>Tipo</strong>"+datosJSON.datos.tipo+"</div>";
               divDatos.innerHTML += "<button data-id="+id+" id='btn-eliminar'>Eliminar pokemon</button>";
+              divDatos.innerHTML += "<button data-id="+id+" id='btn-actualizar'>Actualizar pokemon</button>";
               divDatos.style.display = "flex";
             }
           });
@@ -165,6 +166,10 @@ window.addEventListener("load", ()=>{
             alert("No se pudo eliminar");
           }
         });
+    }
+    if(evento.target.id == "btn-actualizar"){
+      divAgregar.style.display = "block";
+      divResultados.style.display = "none";
     }
   });
 
