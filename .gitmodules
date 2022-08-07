@@ -7,3 +7,6 @@
 [submodule "Semana2/ComplaciendoAlJefe/Chambeadores"]
 	path = Semana2/ComplaciendoAlJefe/Chambeadores
 	url = https://github.com/BalseiraA/Chambeadores.git
+[submodule "Semana3/Casas/CasasCW2022"]
+	path = Semana3/Casas/CasasCW2022
+	url = https://github.com/JoseAntonioZarcoRomero/CasasCW2022.git
