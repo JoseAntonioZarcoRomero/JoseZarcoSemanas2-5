@@ -1,3 +1,9 @@
 [submodule "Zarco-CW-S1"]
 	path = Zarco-CW-S1
 	url = https://github.com/JoseAntonioZarcoRomero/Zarco-CW-S1.git
+[submodule "Semana2/BibliotecaBabel"]
+	path = Semana2/BibliotecaBabel
+	url = https://github.com/daniela-cardenas-b/BibliotecaBabel.git
+[submodule "Semana2/ComplaciendoAlJefe/Chambeadores"]
+	path = Semana2/ComplaciendoAlJefe/Chambeadores
+	url = https://github.com/BalseiraA/Chambeadores.git
