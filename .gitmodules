@@ -13,3 +13,12 @@
 [submodule "Semana4/Buscaminas"]
 	path = Semana4/Buscaminas
 	url = https://github.com/JoseAntonioZarcoRomero/Buscaminas.git
+[submodule "Semana5/Vaquitas_Marinas"]
+	path = Semana5/Vaquitas_Marinas
+	url = https://github.com/elZadig/Vaquitas_Marinas.git
+[submodule "Semana5/Frogger"]
+	path = Semana5/Frogger
+	url = https://github.com/JoseAntonioZarcoRomero/Frogger.git
+[submodule "Semana5/repo-ignorado"]
+	path = Semana5/repo-ignorado
+	url = https://github.com/JoseAntonioZarcoRomero/repo-ignorado.git
