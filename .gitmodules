@@ -10,3 +10,6 @@
 [submodule "Semana3/Casas/CasasCW2022"]
 	path = Semana3/Casas/CasasCW2022
 	url = https://github.com/JoseAntonioZarcoRomero/CasasCW2022.git
+[submodule "Semana4/Buscaminas"]
+	path = Semana4/Buscaminas
+	url = https://github.com/JoseAntonioZarcoRomero/Buscaminas.git
